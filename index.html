@@ -22,8 +22,8 @@
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
                         <h1 class="mx-auto my-0 text-uppercase">Red Mesh</h1>
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Andrés Martínez (00213046) <br> Máximo Pinta (00211312) <br> Pamela Pupiales (00213871) <br> Mateo Ruiz (00212195) <br> Diego Reinoso (00214020)</h2>
-                      
+                        <p class="text-white-50 mx-auto mt-2 mb-5">
+                            Andrés Martínez (00213046) <br> Máximo Pinta (00211312) <br> Pamela Pupiales (00213871) <br> Mateo Ruiz (00212195) <br> Diego Reinoso (00214020)</p>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
             <div class="container px-4 px-lg-5">
                
                     <div class="featured-text text-center text-lg-left">
-                        <h2 style="color:black;">Qué es?</h2>
+                        <h2 style="color:black;">¿Qué es?</h2>
                       
                             <p style="color:black; text-align: left; "> 
                                 Una red mallada es una red WiFi compuesta por varios componentes, pero todos utilizando el mismo SSID o nombre de la red, y la misma contraseña. 
@@ -89,22 +89,61 @@
                             <div class="d-flex h-100">
                                 
                                 <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white">handle_message(msg, sender_id) </h4>
+                                    <h4 class="text-white">handle_message(msg, sender) </h4>
                                     <p class="mb-0 text-white-50">
-                                        La función extract_message que esta dentro de handle se utiliza para extraer el mensaje de la cadena de entrada.</p>
+                                        Esta función recibe un mensaje (msg) y su remitente (sender). Su objetivo es procesar y mostrar el contenido del mensaje recibido. 
+                                        Primero, extrae el contenido del mensaje y el remitente limpiando los caracteres no deseados y luego muestra el remitente y el mensaje en la consola.
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        
+                        <div class="bg-black text-center h-100 project">
+                          
+                            <div class="d-flex h-100">
+                                
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white">sender_to_string(message_obj)</h4>
+                                    <p class="mb-0 text-white-50">
+                                        Esta función recibe un objeto message_obj y devuelve una representación en forma de cadena de los primeros 8 caracteres de ese objeto. 
+                                        El propósito exacto de esta función no está claro en el código proporcionado.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
+                    
                     <div class="col-lg-6">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white">show_connected_devices()</h4>
+                                    <h4 class="text-white">show_connected_devices(node)</h4>
                                     <p class="mb-0 text-white-50">
-                                        Utiliza la propiedad routing_table de node, esta propiedad se utiliza para obtener información sobre 
-                                        los nodos conectados a la red mesh a través de la instancia de MeshSocket proporcionada por el módulo py2p.</p>
+                                        Esta función recibe un objeto node que representa un socket de la malla y muestra una lista de los dispositivos conectados actualmente en la malla. 
+                                        Recorre la tabla de enrutamiento del nodo e imprime el ID de cada dispositivo conectado en la consola.
+                                       
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white">message_to_string(message_obj)</h4>
+                                    <p class="mb-0 text-white-50">
+                                        Esta función recibe un objeto message_obj y devuelve una representación en forma de cadena de los paquetes del mensaje.
+                                        Al igual que sender_to_string(), el propósito exacto de esta función no está claro en el código proporcionado.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -118,7 +157,9 @@
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-right">
                                     <h4 class="text-white">message_handler()</h4>
-                                    <p class="mb-0 text-white-50">Se encarga de manejar lo relacionado con mensajes entrantes en un hilo. Constantemente chequea si ha llegado un nuevo mensaje mediante.</p>
+                                    <p class="mb-0 text-white-50">
+                                        se ejecuta en un hilo y está constantemente esperando mensajes entrantes y los pasa a handle_message() para su procesamiento. 
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -127,9 +168,10 @@
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white">node.recv()</h4>
+                                    <h4 class="text-white">reconnection_handler()</h4>
                                     <p class="mb-0 text-white-50">
-                                        Si ese es el caso entonces se llama a handle_message(), que mostrara el mensaje en consola.</p>
+                                        también se ejecuta en un hilo y se encarga de intentar reconectar con el nodo de arranque si no hay conexiones en la tabla de enrutamiento.
+                                    </p>
                                 </div>
                             </div>
                         </div>
